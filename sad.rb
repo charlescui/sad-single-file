@@ -1,6 +1,7 @@
 require "active_support"
-
+require "eventmachine"
 require "em-redis"
+require "json"
 
 module Sad
 	class Config

@@ -7,8 +7,9 @@ The sad(em based background job) in a single-file
 
 ```ruby
 require "active_support"
-
+require "eventmachine"
 require "em-redis"
+require "json"
 
 module Sad
 	class Config
