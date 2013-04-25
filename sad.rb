@@ -1,11 +1,3 @@
-sad-single-file
-===============
-
-The sad(em based background job) in a single-file
-
-一个文件实现简单的基于Eventmachine的后台任务
-
-```ruby
 require "active_support"
 
 require "em-redis"
@@ -96,13 +88,9 @@ module Sad
 		end
 	end
 end
-```
 
-----------
+__END__
 
-测试类的定义
-
-```ruby
 class SadJob
 	extend ::Sad::Worker
 	
@@ -115,22 +103,17 @@ class SadJob
 		puts args
 	end
 end
-```
 
-### 在一个IRB/PRY中执行
+# 在一个IRB/PRY中执行
 
-```ruby
 EM::PeriodicTimer.new(3){
 	SadJob.enqueue('this is some args', {:hello => 'code'})	
 }
-```
 
-### 在另外一个IRB/PRY中执行
+# 在另外一个IRB/PRY中执行
 
-```ruby
 EM.run{
 	Sad::Server.run('MySadJob')
 }
-```
 
 两个运行环境都要有SadJob这个测试类的定义存在
